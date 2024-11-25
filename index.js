@@ -27,6 +27,19 @@ server.get(
   }),
 );
 
+server.post(
+  "/api/output/js",
+  asyncHandler(async (req, res) => {
+    const { code } = req.body;
+
+    res.status(200).json({
+      success: true,
+      message: "server online",
+      code,
+    });
+  }),
+);
+
 server.use(notFoundHandler);
 server.use(errorHandler);
 
