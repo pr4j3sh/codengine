@@ -1,14 +1,8 @@
-# Express Js Template
+# codengine
 
-This is an express js template, pre-integrated with utilities, so that you can focus on creating API(s).
+This is an express js code server for compiling and executing code.
 
 ## Usage
-
-- Clone using `@pr4j3sh/frames`
-
-```bash
-npm create @pr4j3sh/frames@latest express myapi
-```
 
 - Run using `dev`
 
