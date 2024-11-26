@@ -8,13 +8,13 @@ const {
 const express = require("express");
 const fs = require("node:fs/promises");
 const util = require("node:util");
-const { setup } = require("./src/utils");
+const { setup } = require("./src/lib/utils");
+const { dir } = require("./src/lib/consts");
 const exec = util.promisify(require("node:child_process").exec);
 
 const port = process.env.PORT;
 const hostname = process.env.HOSTNAME;
 const origins = process.env.ORIGINS;
-const dir = process.env.DIR;
 
 setup();
 
