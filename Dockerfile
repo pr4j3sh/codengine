@@ -1,4 +1,4 @@
-FROM pr4j3sh/codengine-core:latest
+FROM pr4j3sh/codengine-core
 
 WORKDIR /usr/src/app
 
