@@ -1,4 +1,4 @@
-FROM pr4j3sh/codenegine-core:latest
+FROM pr4j3sh/codengine-core:latest
 
 WORKDIR /usr/src/app
 
@@ -10,7 +10,7 @@ COPY . .
 
 ENV PORT=5000
 ENV HOSTNAME=0.0.0.0
-ENV ORIGINS=http://${HOSTNAME}:${PORT}
+ENV ORIGINS="http://${HOSTNAME}:${PORT}"
 
 EXPOSE 5000
 
