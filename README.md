@@ -1,6 +1,6 @@
 # codengine
 
-Compile and execute code written in multiple programming languages on a single platform.
+Compile and execute code written in multiple programming languages on a single platform. It uses [codengine-core](https://hub.docker.com/r/pr4j3sh/codengine-core) container.
 
 ## Supported Languages
 
@@ -8,6 +8,10 @@ Compile and execute code written in multiple programming languages on a single p
 - c
 - py
 - js
+
+### Pre-requisites
+
+- [Docker](https://www.docker.com/get-started/)
 
 ## Usage
 
