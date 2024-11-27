@@ -1,11 +1,11 @@
 {
   "name": "codengine",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Running tests..\" && exit 1",
     "start": "node --env-file=.env .",
-    "dev": "nodemon --env-file=.env --ignore ./.temp/* ."
+    "dev": "nodemon --env-file=.env --ignore ./.temp ."
   },
   "keywords": [],
   "author": "Prajesh Pratap Singh <prajesh.eleven118@gmail.com> (https://pr4j3sh.vercel.app/)",

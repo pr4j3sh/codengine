@@ -76,7 +76,7 @@ server.post(
     const { code } = req.body;
 
     await fs.writeFile(`${dir}.cpp`, code);
-    const { stdout, stderr } = await exec(`g++ -o ./code ${dir}.cpp && ./code`);
+    const { stdout, stderr } = await exec(`g++ -o ${dir} ${dir}.cpp && ${dir}`);
     if (stderr) {
       throw new Error(JSON.stringify(stderr));
     }
@@ -94,7 +94,7 @@ server.post(
     const { code } = req.body;
 
     await fs.writeFile(`${dir}.c`, code);
-    const { stdout, stderr } = await exec(`cc -o ./code ${dir}.c && ./code`);
+    const { stdout, stderr } = await exec(`cc -o ${dir} ${dir}.c && ${dir}`);
     if (stderr) {
       throw new Error(JSON.stringify(stderr));
     }
