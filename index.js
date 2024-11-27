@@ -46,8 +46,61 @@ server.post(
     }
     res.status(200).json({
       success: true,
-      message: "server online",
-      code,
+      message: "code compiled and executed successfully",
+      output: JSON.stringify(stdout),
+    });
+  }),
+);
+
+server.post(
+  "/api/output/py",
+  asyncHandler(async (req, res) => {
+    const { code } = req.body;
+
+    await fs.writeFile(`${dir}.py`, code);
+    const { stdout, stderr } = await exec(`python3 ${dir}.py`);
+    if (stderr) {
+      throw new Error(JSON.stringify(stderr));
+    }
+    res.status(200).json({
+      success: true,
+      message: "code compiled and executed successfully",
+      output: JSON.stringify(stdout),
+    });
+  }),
+);
+
+server.post(
+  "/api/output/cpp",
+  asyncHandler(async (req, res) => {
+    const { code } = req.body;
+
+    await fs.writeFile(`${dir}.cpp`, code);
+    const { stdout, stderr } = await exec(`g++ -o ./code ${dir}.cpp && ./code`);
+    if (stderr) {
+      throw new Error(JSON.stringify(stderr));
+    }
+    res.status(200).json({
+      success: true,
+      message: "code compiled and executed successfully",
+      output: JSON.stringify(stdout),
+    });
+  }),
+);
+
+server.post(
+  "/api/output/c",
+  asyncHandler(async (req, res) => {
+    const { code } = req.body;
+
+    await fs.writeFile(`${dir}.c`, code);
+    const { stdout, stderr } = await exec(`cc -o ./code ${dir}.c && ./code`);
+    if (stderr) {
+      throw new Error(JSON.stringify(stderr));
+    }
+    res.status(200).json({
+      success: true,
+      message: "code compiled and executed successfully",
       output: JSON.stringify(stdout),
     });
   }),
