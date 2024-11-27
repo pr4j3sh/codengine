@@ -28,10 +28,10 @@ curl -X POST http://127.0.0.1:5000/api/output/js \
 ## API Endpoints
 
 ```bash
-/api/output/js
-/api/output/py
-/api/output/cpp
-/api/output/c
+POST /api/output/js
+POST /api/output/py
+POST /api/output/cpp
+POST /api/output/c
 ```
 
 > each endpoint requires raw form of code as `JSON` payload
