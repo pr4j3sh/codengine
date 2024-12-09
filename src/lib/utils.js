@@ -1,8 +1,9 @@
 const fs = require("node:fs");
+const { dir } = require("./consts");
 
 async function setup() {
-  if (!fs.existsSync("./.temp")) {
-    fs.mkdirSync("./.temp");
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir);
   }
 }
 

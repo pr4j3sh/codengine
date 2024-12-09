@@ -1,3 +1,4 @@
-const dir = "./.temp/code";
+const dir = "./.temp/";
+const file = "Main";
 
-module.exports = { dir };
+module.exports = { dir, file };

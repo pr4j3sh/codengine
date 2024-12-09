@@ -2,13 +2,13 @@ const { asyncHandler } = require("exhandlers");
 const fs = require("node:fs/promises");
 const util = require("node:util");
 const exec = util.promisify(require("node:child_process").exec);
-const { dir } = require("../lib/consts");
+const { dir, file } = require("../lib/consts");
 
 const javascript = asyncHandler(async (req, res) => {
   const { code } = req.body;
 
-  await fs.writeFile(`${dir}.js`, code);
-  const { stdout, stderr } = await exec(`node ${dir}.js`);
+  await fs.writeFile(`${dir}${file}.js`, code);
+  const { stdout, stderr } = await exec(`node ${dir}${file}.js`);
   if (stderr) {
     throw new Error(JSON.stringify(stderr));
   }
@@ -22,8 +22,8 @@ const javascript = asyncHandler(async (req, res) => {
 const python = asyncHandler(async (req, res) => {
   const { code } = req.body;
 
-  await fs.writeFile(`${dir}.py`, code);
-  const { stdout, stderr } = await exec(`python3 ${dir}.py`);
+  await fs.writeFile(`${dir}${file}.py`, code);
+  const { stdout, stderr } = await exec(`python3 ${dir}${file}.py`);
   if (stderr) {
     throw new Error(JSON.stringify(stderr));
   }
@@ -37,8 +37,10 @@ const python = asyncHandler(async (req, res) => {
 const cpp = asyncHandler(async (req, res) => {
   const { code } = req.body;
 
-  await fs.writeFile(`${dir}.cpp`, code);
-  const { stdout, stderr } = await exec(`g++ -o ${dir} ${dir}.cpp && ${dir}`);
+  await fs.writeFile(`${dir}${file}.cpp`, code);
+  const { stdout, stderr } = await exec(
+    `g++ -o ${dir}${file} ${dir}${file}.cpp && ${dir}${file}`,
+  );
   if (stderr) {
     throw new Error(JSON.stringify(stderr));
   }
@@ -52,8 +54,10 @@ const cpp = asyncHandler(async (req, res) => {
 const c = asyncHandler(async (req, res) => {
   const { code } = req.body;
 
-  await fs.writeFile(`${dir}.c`, code);
-  const { stdout, stderr } = await exec(`cc -o ${dir} ${dir}.c && ${dir}`);
+  await fs.writeFile(`${dir}${file}.c`, code);
+  const { stdout, stderr } = await exec(
+    `cc -o ${dir}${file} ${dir}${file}.c && ${dir}${file}`,
+  );
   if (stderr) {
     throw new Error(JSON.stringify(stderr));
   }
@@ -67,8 +71,8 @@ const c = asyncHandler(async (req, res) => {
 const ruby = asyncHandler(async (req, res) => {
   const { code } = req.body;
 
-  await fs.writeFile(`${dir}.rb`, code);
-  const { stdout, stderr } = await exec(`ruby ${dir}.rb`);
+  await fs.writeFile(`${dir}${file}.rb`, code);
+  const { stdout, stderr } = await exec(`ruby ${dir}${file}.rb`);
   if (stderr) {
     throw new Error(JSON.stringify(stderr));
   }
@@ -82,8 +86,8 @@ const ruby = asyncHandler(async (req, res) => {
 const perl = asyncHandler(async (req, res) => {
   const { code } = req.body;
 
-  await fs.writeFile(`${dir}.pl`, code);
-  const { stdout, stderr } = await exec(`perl ${dir}.pl`);
+  await fs.writeFile(`${dir}${file}.pl`, code);
+  const { stdout, stderr } = await exec(`perl ${dir}${file}.pl`);
   if (stderr) {
     throw new Error(JSON.stringify(stderr));
   }
@@ -97,8 +101,10 @@ const perl = asyncHandler(async (req, res) => {
 const rust = asyncHandler(async (req, res) => {
   const { code } = req.body;
 
-  await fs.writeFile(`${dir}.rs`, code);
-  const { stdout, stderr } = await exec(`rustc ${dir}.rs && ${dir}`);
+  await fs.writeFile(`${dir}${file}.rs`, code);
+  const { stdout, stderr } = await exec(
+    `rustc -o ${dir}${file} ${dir}${file}.rs && ${dir}${file}`,
+  );
   if (stderr) {
     throw new Error(JSON.stringify(stderr));
   }
@@ -112,8 +118,10 @@ const rust = asyncHandler(async (req, res) => {
 const java = asyncHandler(async (req, res) => {
   const { code } = req.body;
 
-  await fs.writeFile(`${dir}.java`, code);
-  const { stdout, stderr } = await exec(`javac ${dir}.java && java ${dir}`);
+  await fs.writeFile(`${dir}${file}.java`, code);
+  const { stdout, stderr } = await exec(
+    `javac -d ${dir} ${dir}${file}.java && java -cp  ${dir} ${file}`,
+  );
   if (stderr) {
     throw new Error(JSON.stringify(stderr));
   }
@@ -127,8 +135,8 @@ const java = asyncHandler(async (req, res) => {
 const lua = asyncHandler(async (req, res) => {
   const { code } = req.body;
 
-  await fs.writeFile(`${dir}.lua`, code);
-  const { stdout, stderr } = await exec(`lua ${dir}.lua`);
+  await fs.writeFile(`${dir}${file}.lua`, code);
+  const { stdout, stderr } = await exec(`lua ${dir}${file}.lua`);
   if (stderr) {
     throw new Error(JSON.stringify(stderr));
   }
@@ -142,8 +150,10 @@ const lua = asyncHandler(async (req, res) => {
 const typescript = asyncHandler(async (req, res) => {
   const { code } = req.body;
 
-  await fs.writeFile(`${dir}.ts`, code);
-  const { stdout, stderr } = await exec(`tsc ${dir}.ts && node ${dir}.js`);
+  await fs.writeFile(`${dir}${file}.ts`, code);
+  const { stdout, stderr } = await exec(
+    `tsc --outDir ${dir} ${dir}${file}.ts && node ${dir}${file}.js`,
+  );
   if (stderr) {
     throw new Error(JSON.stringify(stderr));
   }
