@@ -1,4 +1,4 @@
-FROM pr4j3sh/codengine-core:1.0.0
+FROM pr4j3sh/codengine-core:1.0.1
 
 WORKDIR /usr/src/app
 COPY package*.json ./

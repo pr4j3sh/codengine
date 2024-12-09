@@ -4,10 +4,16 @@ Compile and execute code written in multiple programming languages on a single p
 
 ## Supported Languages
 
-- cpp
-- c
-- py
-- js
+- Javascript
+- Typescript
+- Python
+- Java
+- Perl
+- Ruby
+- Rust
+- Lua
+- CPP
+- C
 
 ### Pre-requisites
 
@@ -32,9 +38,15 @@ curl -X POST http://127.0.0.1:5000/api/output/js \
 ## API Endpoints
 
 ```bash
-POST /api/output/js
-POST /api/output/py
+POST /api/output/java
 POST /api/output/cpp
+POST /api/output/lua
+POST /api/output/js
+POST /api/output/ts
+POST /api/output/py
+POST /api/output/pl
+POST /api/output/rb
+POST /api/output/rs
 POST /api/output/c
 ```
 
