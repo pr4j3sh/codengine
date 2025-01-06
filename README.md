@@ -24,7 +24,7 @@ Compile and execute code written in multiple programming languages on a single p
 - Run using `docker`
 
 ```bash
-docker run -p 5000:5000 pr4j3sh/codengine
+docker run -p 5000:5000 pr4j3sh/codengine:v1.0.3
 ```
 
 - Use `curl` to make requests
